@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIV Viral Load</title>
+    <link rel="stylesheet" href="app/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/vendor/chartjs/css/angular-chart.css">
+    <link rel="stylesheet" href="app/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/css/custom.css">
+    <link rel="stylesheet" href="app/vendor/toastr/toastr.css">
+    <link rel="stylesheet" href="app/css/animation.css">
+    <link rel="stylesheet" href="app/css/sb-admin.css">
+    <link rel="stylesheet" href="app/css/create-new-event.css">
+    <link rel="stylesheet" href="app/css/login.css">
+    <link rel="stylesheet" href="app/css/datetimepicker.css">
+    <!--<link rel="P3Pv1" href="http://www.cdc.gov/w3c/p3p.xml">-->
+
+    <script type="text/javascript" src="app/vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="app/vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="app/vendor/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="app/vendor/angular/1.5.9/angular.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-ui-bootstrap/ui-bootstrap-tpls-2.3.0.js"></script>
+    <script type="text/javascript" src="app/vendor/datetimepicker/datetimepicker.js"></script>
+    <script type="text/javascript" src="app/vendor/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="app/vendor/angular-base64/angular-base64.min.js"></script>
+
+    <script src="app/app.js"></script>
+
+    <script src="app/common/patientServices.js"></script>
+    <script src="app/common/authenticationServices.js"></script>
+    <script type="text/javascript" src="app/filters/searchAll.js"></script>
+    <script src="app/main/mainCtrl.js"></script>
+    <script src="app/tasks/tasksController.js"></script>
+    <script src="app/home/patientModalInstanceCtrl.js"></script>
+    <script src="app/home/homeController.js"></script>
+    <script src="app/reports/reportsController.js"></script>
+    <script src="app/patient/patientController.js"></script>
+
+</head>
+<body ng-controller="mainCtrl">
+<div id="wrapper" style="display:none">
+    <!-- Navigation-->
+    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top ng-cloak">
+        <!-- Brand and toggle get grouped for better mobile display-->
+        <div class="navbar-header ng-cloak">
+            <span class="app-title">HIV Viral Load</span>
+            <span>Monitoring System</span>
+        </div>
+        <div class="userDisplay">
+            Welcome, {{currentSession.user.person.display}}
+        </div>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens-->
+        <div class="collapse navbar-collapse navbar-ex1-collapse ng-cloak">
+            <ul class="nav navbar-nav side-nav ng-cloak">
+
+                <li class="side-nav-search">
+                    <div class="col-md-12">
+                        <div class="right-inner-addon"><i class="fa fa-fw fa-search"></i>
+                            <input ng-model="searchText" type="search" placeholder="Search" style="background-color:white; border: 1px thin; border-color:#212328; color:#aeaeae; font-weight:normal;" class="form-control">
+                        </div>
+                    </div>
+                </li>
+                <li class="side-nav-main-tab">
+                </li>
+                <li class="taskList"><a class="taskLinkColor" href="#/patientList"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbspPatient List</a></li>
+                <li class="taksList"><a href="#/tasks"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspTasks</a></li>
+                <li class="taskList"><a href="#/reports"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbspReports</a><br></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse-->
+    </nav>
+    <div ng-view>
+    </div>
+</div>
+</body>
+<!--include scripts-->
+
+
+</html>

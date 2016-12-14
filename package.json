@@ -1,0 +1,15 @@
+{
+  "name": "openmrs-owa-hivlabtracking",
+  "version": "1.0.0",
+  "description": "openmrs owa to track hiv viral load ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Trung Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "openmrs-contrib-uicommons": "^0.4.3"
+  }
+}

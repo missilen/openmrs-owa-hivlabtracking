@@ -1,0 +1,47 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading-->
+        <div class="row">
+            <div class="header col-lg-12">
+
+                <div>
+                    <span style="font-size: 20pt; font-weight: bold;">Patients</span>
+                    <button type="button" ng-click="createPatient('lg',null,true)"  class="btn btn-primary" style="float: right;">Add Patient</button>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <!-- Page Content-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover tableCustom">
+                        <thead>
+                        <tr>
+                            <th><a href="" ng-click="sortType = 'patientId'; sortReverse = !sortReverse; sortPatient('patientId')">Patient ID<span ng-show="sortType == 'patientId' &amp;&amp; !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'patientId' &amp;&amp;  sortReverse" class="fa fa-caret-up"> </span></a></th>
+                            <th><a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse; sortPatient('name')">Name<span ng-show="sortType == 'name' &amp;&amp; !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'name' &amp;&amp;  sortReverse" class="fa fa-caret-up"></span></a></th>
+                            <th><a href="" ng-click="sortType = 'birthDate'; sortReverse = !sortReverse; sortPatient('birthDate')">Day of Birth <span ng-show="sortType == 'birthDate' &amp;&amp; !sortReverse" class="fa fa-caret-down"></span><span ng-show="sortType == 'birthDate' &amp;&amp;  sortReverse" class="fa fa-caret-up"> </span></a></th>
+                            <th><a href="">Status</a></th>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="patient in filpatients =(patientList | searchAll : $parent.searchText) | limitTo: itemsPerPage : beginItem ">
+                            <td ng-class-odd="'tableStripe'">{{patient.patientId}}</td>
+                            <td ng-class-odd="'tableStripe'">{{patient.name}}</td>
+                            <td ng-class-odd="'tableStripe'">{{patient.birthDate | date:'MM/dd/yyyy' }}</td>
+                            <!--<td ng-class-odd="'tableStripe'"><a ng-href="#" ng-click="showPatient(patient.uuid)">View Patient</a></td>-->
+                            <td ng-class-odd="'tableStripe'"><a href="#/patientDetail/{{patient.uuid}}">View Patient</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div ng-show="filpatients.length &gt; itemsPerPage" class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <pagination total-items="filpatients.length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxsize" boundary-links="true" ng-change="pageChanged()" previous-text="‹" next-text="›" first-text="«" last-text="»" class="pagination-sm"></pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

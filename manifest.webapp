@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "name": "Hiv Viral App",
+  "description": "sample to test out Open Web App",
+  "launch_path": "index.html",
+  "icons": {
+    "16": "img/icons/iiu-logo.png",
+    "48": "img/icons/iiu-logo.png",
+    "128": "img/icons/iiu-logo.png"
+  },
+  "developer": {
+    "name": "Trung Nguyen",
+    "url": "http://github.com/your-github-id"
+  },
+  "default_locale": "en",
+  "activities": {
+    "openmrs": {
+      "href": "*"
+    }
+  }
+}
