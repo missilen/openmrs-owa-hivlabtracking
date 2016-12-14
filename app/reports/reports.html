@@ -1,0 +1,23 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading-->
+        <div class="row">
+            <div class="header col-lg-12">
+                <h2 class="page-header">Reports</h2>
+            </div>
+        </div>
+        <!-- Page Content-->
+        <div class="row">
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+        <div ng-show="filpatients.length &gt; itemsPerPage" class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <pagination total-items="filpatients.length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxsize" boundary-links="true" ng-change="pageChanged()" previous-text="‹" next-text="›" first-text="«" last-text="»" class="pagination-sm"></pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div>
+    <div class="modal-header"></div>
+    <div class="modal-body">
+    <span style="float:right">Paper Form ID: $paperFormId</span>
+    <h2>HIV Viral Load Monitor (v1.0)</h2>
+
+    <section headerLabel="1. Encounter Details">
+        <table class="baseline-aligned">
+            <tr>
+                <td>Date:</td>
+                <td><encounterDate default="today"/></td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td><encounterLocation/></td>
+            </tr>
+            <tr>
+                <td>Provider:</td>
+                <td><encounterProvider/></td>
+            </tr>
+        </table>
+    </section>
+
+    <section headerLabel="2. Demographic Information">
+        <table class="baseline-aligned">
+            <tr>
+                <td>Name:</td>
+                <td>{{patient.person.display}}<td>
+            </tr>
+            <tr>
+                <td>OpenMRS ID:</td>
+                <td><lookup class="value" complexExpression="#foreach( $patId in $patientIdentifiers.get('OpenMRS ID') ) $patId #end "/></td>
+            </tr>
+            <tr>
+                <td>OpenMRS Identification Number:</td>
+                <td><lookup class="value" complexExpression="#foreach( $patId in $patientIdentifiers.get('OpenMRS Identification Number') ) $patId #end "/></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><lookup class="value" expression="patient.gender"/></td>
+            </tr>
+            <tr>
+                <td>Birthdate:</td>
+                <td>{{patient.person.birthdate | date}}
+                    <!--<lookup class="value" complexExpression="#if( \$patient.birthdateEstimated ) ~#end"/> <lookup class="value" expression="patient.birthdate"/>-->
+                    <!--(Age: <lookup class="value" expression="patient.age"/>)-->
+                </td>
+            </tr>
+            <tr>
+                <td>Telephone Number:</td>
+                <td><lookup class="value" expression="personAttributes.get('Telephone Number')"/></td>
+            </tr>
+            <tr>
+                <td>Test Patient:</td>
+                <td><lookup class="value" expression="personAttributes.get('Test Patient')"/></td>
+            </tr>
+        </table>
+    </section>
+    <section headerLabel="3. Lab Information">
+        <table class="baseline-aligned">
+            <tr>
+                <td>Lab:</td>
+                <td>IIU</td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td>Atlanta</td>
+            </tr>
+            <tr>
+                <td>Telephone Number:</td>
+                <td><lookup class="value" expression="personAttributes.get('Telephone Number')"/></td>
+            </tr>
+
+        </table>
+    </section>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+
+</div>
+
+
