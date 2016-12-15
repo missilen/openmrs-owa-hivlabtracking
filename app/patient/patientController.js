@@ -1,12 +1,15 @@
 /**
  * Created by trungnguyen on 11/28/16.
  */
-angular.module('app').controller('patientController',function($rootScope, $scope,$http,$route,$routeParams,$location,ngPatient,$uibModal) {
+angular.module('app').controller('patientController',function($rootScope, $scope,$http,$state,$stateParams,$location,ngPatient,$uibModal) {
     $scope.myPatient;
-    var patientuuid = $routeParams.uuid;
+    var patientuuid = $stateParams.uuid;
     var orderer;
     ngPatient.getPatientDetail(patientuuid).then(function(res) {
             $scope.myPatient = res;
+        $scope.$broadcast('currentPatient', {
+            myPatient:  $scope.myPatient
+        });
     });
 
     $scope.currentUserRoles = $scope.$parent.currentSession.user.roles;

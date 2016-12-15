@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ['$scope', '$rootScope','$uibModal','$routeParams','$location','$route','$log','$http','$window','ngPatient','authentication', function($scope, $rootScope, $modal,$routeParams,$location, $route,$log,$http,$window,ngPatient,authentication) {
+app.controller('mainCtrl', ['$scope', '$rootScope','$uibModal','$state','$stateParams','$location','$log','$http','$window','ngPatient','authentication', function($scope, $rootScope, $modal,$state,$stateParams,$location,$log,$http,$window,ngPatient,authentication) {
     authentication.getCurrentSession().then(function(session){
         $scope.currentSession = session;
         console.log($scope.currentSession);
@@ -25,7 +25,7 @@ app.controller('mainCtrl', ['$scope', '$rootScope','$uibModal','$routeParams','$
 
 }]);
 
-    var importEventModalCtrl = function ($scope, $modalInstance, $location, $route, $timeout, $http, $filter, $modal) {
+    var importEventModalCtrl = function ($scope, $modalInstance, $location, $state, $timeout, $http, $filter, $modal) {
 // display modal popup to show list of available events
         $scope.sortReverse = false;
         $scope.sortType = "dateCreated";
@@ -55,12 +55,14 @@ app.controller('mainCtrl', ['$scope', '$rootScope','$uibModal','$routeParams','$
 
         $scope.ok = function () {
             $modalInstance.close();
-            $route.reload();
+            $state.reload()
+           // $route.reload();
         };
 
         $scope.cancel = function () {
             $modalInstance.dismiss();
-            $route.reload();
+            $state.reload()
+          //  $route.reload();
         };
         $scope.pageCount = function () {
             return Math.ceil($scope.totalPatients / $scope.itemsPerPage);

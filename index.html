@@ -41,6 +41,13 @@
     <script src="app/home/homeController.js"></script>
     <script src="app/reports/reportsController.js"></script>
     <script src="app/patient/patientController.js"></script>
+    <script src="app/patient/diagnosesCtrl.js"></script>
+    <script src="app/patient/allergiesCtrl.js"></script>
+    <script src="app/patient/medicationCtrl.js"></script>
+    <script src="app/patient/contactsCtrl.js"></script>
+    <script src="app/patient/appointmentsCtrl.js"></script>
+    <script src="app/patient/notesCtrl.js"></script>
+    <script src="app/patient/flowsheetsCtrl.js"></script>
 
 </head>
 <body ng-controller="mainCtrl">
@@ -68,15 +75,18 @@
                 </li>
                 <li class="side-nav-main-tab">
                 </li>
-                <li class="taskList"><a class="taskLinkColor" href="#/patientList"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbspPatient List</a></li>
-                <li class="taksList"><a href="#/tasks"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspTasks</a></li>
-                <li class="taskList"><a href="#/reports"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbspReports</a><br></li>
+                <!--<li class="taskList"><a class="taskLinkColor" href="#/patientList"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbspPatient List</a></li>-->
+                <!--<li class="taksList"><a href="#/tasks"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspTasks</a></li>-->
+                <!--<li class="taskList"><a href="#/reports"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbspReports</a><br></li>-->
+                <li class="taskList"><a class="taskLinkColor" ui-sref='patientList'><i class="fa fa-list-ul" aria-hidden="true"></i>&nbspPatient List</a></li>
+                <li class="taksList"><a ui-sref="tasks"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbspTasks</a></li>
+                <li class="taskList"><a ui-sref="reports"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbspReports</a><br></li>
             </ul>
         </div>
         <!-- /.navbar-collapse-->
     </nav>
-    <div ng-view>
-    </div>
+    <!--<div ng-view></div>-->
+    <ui-view></ui-view>
 </div>
 </body>
 <!--include scripts-->

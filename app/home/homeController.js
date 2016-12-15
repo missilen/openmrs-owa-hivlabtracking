@@ -1,7 +1,7 @@
 /**
  * Created by trungnguyen on 11/28/16.
  */
-angular.module('app').controller('homeController',function($scope,$http,$route,$routeParams,$location,ngPatient,$window,$uibModal) {
+angular.module('app').controller('homeController',function($scope,$http,$state,$stateParams,$location,ngPatient,$window,$uibModal) {
     // var vm = this;
     // vm.items;
     // vm.resourseName = 'class';

@@ -55,10 +55,12 @@ app.factory('ngPatient', function($http,$location,$browser) {
             return promise;
         },
         getEncounters : function(patientUUID) {
-            var querystr = patientUUID+'?v=full';
+            var querystr = '?patient='+patientUUID+'&v=full&encounterType=d7151f82-c1f3-4152-a605-2f9ea7414a79';
+            console.log(querystr);
             var service = 'ws/rest/v1/encounter';
-            var urlResource = rootUrl+service;
+            var urlResource = rootUrl+service+querystr;
             var promise = $http.get(urlResource).then(function(response){
+
                 return response.data.results;
             })
             // Return the promise to the controller

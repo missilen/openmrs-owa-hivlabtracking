@@ -29,7 +29,8 @@
                             <td ng-class-odd="'tableStripe'">{{patient.name}}</td>
                             <td ng-class-odd="'tableStripe'">{{patient.birthDate | date:'MM/dd/yyyy' }}</td>
                             <!--<td ng-class-odd="'tableStripe'"><a ng-href="#" ng-click="showPatient(patient.uuid)">View Patient</a></td>-->
-                            <td ng-class-odd="'tableStripe'"><a href="#/patientDetail/{{patient.uuid}}">View Patient</a></td>
+                            <!--<td ng-class-odd="'tableStripe'"><a href="#/patientDetail/{{patient.uuid}}">View Patient</a></td>-->
+                            <td ng-class-odd="'tableStripe'"><a ui-sref='patientDetail({uuid:patient.uuid})'>View Patient</a></td>
                         </tr>
                         </tbody>
                     </table>
