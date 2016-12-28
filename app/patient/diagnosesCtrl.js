@@ -11,13 +11,19 @@ angular.module('app').controller('diagnosesCtrl',function($scope,$http,$state,$s
                 encounterData.forEach(function (encounter) {
                     encounter.obs.forEach(function(ob){
                         if (ob.concept.uuid === '159947AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
-                            var oneDiagnose = {
-                                'encounterDatetime': encounter.encounterDatetime,
-                                'location': encounter.location,
-                                'ob': ob,
-                                'links': ob.links,
-                            }
-                            $scope.diagnoses.push(oneDiagnose);
+                            ob.groupMembers.forEach(function(member) {
+                                 if (member.concept.uuid === "1284AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"){
+                                     var oneDiagnose = {
+                                         'encounterDatetime': encounter.encounterDatetime,
+                                         'location': encounter.location,
+                                         'ob': ob,
+                                         'display' : member.display.split('PROBLEM LIST:')[1],
+                                         'links': ob.links
+                                 }
+                                     $scope.diagnoses.push(oneDiagnose);
+                                 }
+                            })
+
                         }
                     })
             })
